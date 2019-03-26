@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Traits\Rounding;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,5 +17,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/**
+ * Untuk route data siswa
+ */
 Route::get('/siswa', 'SiswaController@index');
+
+/**
+ * Untuk route create data siswa
+ */
 Route::post('/siswa/create', 'SiswaController@create');
+
+/**
+ * Untuk route edit data siswa
+ */
+Route::get('/siswa/{id}/edit','SiswaController@edit');
+Route::post('/siswa/{id}/update','SiswaController@update');
