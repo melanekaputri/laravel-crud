@@ -1,6 +1,7 @@
 <?php
 
 use Carbon\Traits\Rounding;
+use App\Http\Controllers\SiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,8 @@ Route::post('/siswa/create', 'SiswaController@create');
  */
 Route::get('/siswa/{id}/edit','SiswaController@edit');
 Route::post('/siswa/{id}/update','SiswaController@update');
+
+/**
+ * Route untuk delete data siswa
+ */
+Route::get('/siswa/{id}/delete','SiswaController@delete');
