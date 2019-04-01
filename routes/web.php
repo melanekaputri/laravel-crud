@@ -15,7 +15,7 @@ use App\Http\Controllers\SiswaController;
 */
 
 Route::get('/', function () {
-    return 'Home';
+    return view('welcome');
 });
 
 /**
