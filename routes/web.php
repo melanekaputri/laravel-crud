@@ -2,6 +2,7 @@
 
 use Carbon\Traits\Rounding;
 use App\Http\Controllers\SiswaController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,26 +16,46 @@ use App\Http\Controllers\SiswaController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 /**
- * Untuk route data siswa
+ * Route untuk login
  */
-Route::get('/siswa', 'SiswaController@index');
+Route::get('/login','AuthController@login')->name('login');
+Route::post('postlogin','AuthController@postlogin');
 
 /**
- * Untuk route create data siswa
+ * Route untuk logout
  */
-Route::post('/siswa/create', 'SiswaController@create');
+Route::get('/logout','AuthController@logout');
 
-/**
- * Untuk route edit data siswa
- */
-Route::get('/siswa/{id}/edit','SiswaController@edit');
-Route::post('/siswa/{id}/update','SiswaController@update');
+Route::group(['middleware' => 'auth'], function () {
+        /**
+         * Route untuk dashboard
+         */
+        Route::get('/dashboard', 'DashboardController@index');
 
-/**
- * Route untuk delete data siswa
- */
-Route::get('/siswa/{id}/delete','SiswaController@delete');
+        /**
+         * Untuk route data siswa
+         */
+        Route::get('/siswa', 'SiswaController@index');
+
+        /**
+         * Untuk route create data siswa
+         */
+        Route::post('/siswa/create', 'SiswaController@create');
+
+        /**
+         * Untuk route edit data siswa
+         */
+        Route::get('/siswa/{id}/edit','SiswaController@edit');
+        Route::post('/siswa/{id}/update','SiswaController@update');
+
+        /**
+         * Route untuk delete data siswa
+         */
+        Route::get('/siswa/{id}/delete','SiswaController@delete');
+});
+
+
