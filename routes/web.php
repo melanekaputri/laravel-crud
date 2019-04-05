@@ -56,6 +56,11 @@ Route::group(['middleware' => 'auth'], function () {
          * Route untuk delete data siswa
          */
         Route::get('/siswa/{id}/delete','SiswaController@delete');
+
+        /**
+         * Route untuk profile
+         */
+        Route::get('/siswa/{id}/profile','SiswaController@profile');
 });
 
 
