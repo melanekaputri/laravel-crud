@@ -7,48 +7,48 @@
                 <div class="row">
                     <div class="col-md-12">
                     <div class="panel">
-								<div class="panel-heading">
-                                    <h3 class="panel-title">Data Siswa</h3>
-                                    <div class="right">
-                                        <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"><i class="lnr lnr-plus-circle"></i></button>
-                                    </div>
-								</div>
-								<div class="panel-body">
-									<table class="table table-hover">
-										<thead>
-											<tr>
-												<th>NAMA DEPAN</th>
-                                                <th>NAMA BELAKANG</th>
-                                                <th>JENIS KELAMIN</th>
-                                                <th>AGAMA</th>
-                                                <th>ALAMAT</th>
-                                                <th>AKSI</th>
-											</tr>
-										</thead>
-										<tbody>
-											 @foreach ($data_siswa as $siswa)
-                                                <tr>
-                                                <td><a href="/siswa/{{$siswa->id}}/profile">{{ $siswa->nama_depan }}</a></td>
-                                                <td><a href="/siswa/{{$siswa->id}}/profile">{{ $siswa->nama_belakang }}</a></td>
-                                                    <td>{{ $siswa->jenis_kelamin }}</td>
-                                                    <td>{{ $siswa->agama }}</td>
-                                                    <td>{{ $siswa->alamat }}</td>
-                                                    <td>
-                                                        <a href="/siswa/{{ $siswa->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
-                                                        <a href="/siswa/{{ $siswa->id }}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin ingin menghapus data ini?')">Detele</a>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-										</tbody>
-									</table>
-								</div>
-							</div>
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Data Siswa</h3>
+                            <div class="right">
+                                <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"><i class="lnr lnr-plus-circle"></i></button>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>NAMA DEPAN</th>
+                                        <th>NAMA BELAKANG</th>
+                                        <th>JENIS KELAMIN</th>
+                                        <th>AGAMA</th>
+                                        <th>ALAMAT</th>
+                                        <th>AKSI</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                     @foreach ($data_siswa as $siswa)
+                                        <tr>
+                                        <td><a href="/siswa/{{$siswa->id}}/profile">{{ $siswa->nama_depan }}</a></td>
+                                        <td><a href="/siswa/{{$siswa->id}}/profile">{{ $siswa->nama_belakang }}</a></td>
+                                            <td>{{ $siswa->jenis_kelamin }}</td>
+                                            <td>{{ $siswa->agama }}</td>
+                                            <td>{{ $siswa->alamat }}</td>
+                                            <td>
+                                                <a href="/siswa/{{ $siswa->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                                                <a href="/siswa/{{ $siswa->id }}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin ingin menghapus data ini?')">Detele</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Modal -->
+<!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -67,7 +67,11 @@
             </div>
             <div class="form-group">
                 <label for="nama_belakang">Nama Belakang</label>
-                <input name="nama_belakang" type="text" class="form-control" id="nama_belakang" aria-describedby="emailHelp" placeholder="Nama Belakang">
+                <input name="nama_belakang" type="text" class="form-control" id="nama_belakang" placeholder="Nama Belakang">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email">
             </div>
             <div class="form-group">
                 <label for="jenis_kelamin">Pilih Jenis Kelamin</label>

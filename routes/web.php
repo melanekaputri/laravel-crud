@@ -30,12 +30,7 @@ Route::post('postlogin','AuthController@postlogin');
  */
 Route::get('/logout','AuthController@logout');
 
-Route::group(['middleware' => 'auth'], function () {
-        /**
-         * Route untuk dashboard
-         */
-        Route::get('/dashboard', 'DashboardController@index');
-
+Route::group(['middleware' => ['auth','checkRole:admin']], function () {
         /**
          * Untuk route data siswa
          */
@@ -61,6 +56,13 @@ Route::group(['middleware' => 'auth'], function () {
          * Route untuk profile
          */
         Route::get('/siswa/{id}/profile','SiswaController@profile');
+});
+
+Route::group(['middleware' => ['auth','checkRole:admin,siswa']], function (){
+     /**
+         * Route untuk dashboard
+         */
+        Route::get('/dashboard', 'DashboardController@index');
 });
 
 
