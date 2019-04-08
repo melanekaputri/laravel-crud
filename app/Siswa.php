@@ -20,4 +20,12 @@ class Siswa extends Model
         }
         return asset('images/' .$this->avatar);
     }
+
+    /**
+     * Function untuk mendeklarasikan relasi many to many dengan tabel mapel
+     */
+    public function mapel()
+    {
+        return $this->belongsToMany(Mapel::class)->withPivot(['nilai']);
+    }
 }
