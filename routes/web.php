@@ -19,49 +19,37 @@ Route::get('/', function () {
     return view('home');
 });
 
-/**
- * Route untuk login
- */
+//Route untuk login
 Route::get('/login','AuthController@login')->name('login');
 Route::post('postlogin','AuthController@postlogin');
 
-/**
- * Route untuk logout
- */
+//Route untuk logout
 Route::get('/logout','AuthController@logout');
 
 Route::group(['middleware' => ['auth','checkRole:admin']], function () {
-        /**
-         * Untuk route data siswa
-         */
+        //Untuk route data siswa
         Route::get('/siswa', 'SiswaController@index');
 
-        /**
-         * Untuk route create data siswa
-         */
+        //Untuk route create data siswa
         Route::post('/siswa/create', 'SiswaController@create');
-
-        /**
-         * Untuk route edit data siswa
-         */
+        
+        //Untuk route edit data siswa
         Route::get('/siswa/{id}/edit','SiswaController@edit');
         Route::post('/siswa/{id}/update','SiswaController@update');
 
-        /**
-         * Route untuk delete data siswa
-         */
+        // Route untuk delete data siswa
         Route::get('/siswa/{id}/delete','SiswaController@delete');
 
-        /**
-         * Route untuk profile
-         */
+        //Route untuk profile
+        
         Route::get('/siswa/{id}/profile','SiswaController@profile');
+
+        //Route untuk tambah nilai 
+        Route::post('/siswa/{id}/addnilai','SiswaController@addnilai');
 });
 
 Route::group(['middleware' => ['auth','checkRole:admin,siswa']], function (){
-     /**
-         * Route untuk dashboard
-         */
+        //Route untuk dashboard
         Route::get('/dashboard', 'DashboardController@index');
 });
 
