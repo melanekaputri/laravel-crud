@@ -19,6 +19,9 @@
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="{{asset('admin/assets/img/logo.png')}}">
 	<link rel="icon" type="image/png" sizes="96x96" href="{{asset('admin/assets/img/logo.png')}}">
+
+	@yield('header')
+
 </head>
 
 <body>

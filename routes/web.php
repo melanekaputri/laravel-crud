@@ -46,6 +46,10 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function () {
 
         //Route untuk tambah nilai 
         Route::post('/siswa/{id}/addnilai','SiswaController@addnilai');
+
+        //Route detele nilai
+        Route::get('/siswa/{id}/{idmapel}/deletenilai','SiswaController@deletenilai');
+
 });
 
 Route::group(['middleware' => ['auth','checkRole:admin,siswa']], function (){
