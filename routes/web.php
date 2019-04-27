@@ -50,6 +50,9 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function () {
         //Route detele nilai
         Route::get('/siswa/{id}/{idmapel}/deletenilai','SiswaController@deletenilai');
 
+        //Route profile guru
+        Route::get('/guru/{id}/profile','GuruController@profile');
+
 });
 
 Route::group(['middleware' => ['auth','checkRole:admin,siswa']], function (){
