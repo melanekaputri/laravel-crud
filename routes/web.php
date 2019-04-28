@@ -50,8 +50,15 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function () {
         //Route detele nilai
         Route::get('/siswa/{id}/{idmapel}/deletenilai','SiswaController@deletenilai');
 
+        //Route Export Excel Siswa
+        Route::get('/siswa/exportexcel','SiswaController@exportExcel');
+
+        //Route Export PDF Siswa
+        Route::get('/siswa/exportpdf','SiswaController@exportPdf');
+
         //Route profile guru
         Route::get('/guru/{id}/profile','GuruController@profile');
+        
 
 });
 

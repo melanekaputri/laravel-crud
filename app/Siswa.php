@@ -40,7 +40,7 @@ class Siswa extends Model
             $count++;
         }
 
-        return round($total/$count);
+        return round($total/$count,2);
     }
 
     //Custom function untuk nama lengkap
