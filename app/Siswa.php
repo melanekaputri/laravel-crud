@@ -32,15 +32,17 @@ class Siswa extends Model
     //Custom function untuk rata-rata nilai
     public function rataNilai()
     {
-        //Ambil Data Nilai
-        $total = 0;
-        $count = 0;
-        foreach($this->mapel as $mapel){
-            $total = $total + $mapel->pivot->nilai;
-            $count++;
-        }
+        if($this->mapel()->withPivot('nilai')->exists()){
+            $totNilai = 0;
+            $countMapel = 0;
+            foreach($this->mapel as $mapel){
+                $totNilai += $mapel->pivot->nilai;
+                $countMapel++;
+            }
 
-        return round($total/$count,2);
+            return round($totNilai/$countMapel,2);
+        }
+        return ('Nilai Belum Ada');  
     }
 
     //Custom function untuk nama lengkap

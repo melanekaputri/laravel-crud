@@ -41,7 +41,6 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function () {
         Route::get('/siswa/{id}/delete','SiswaController@delete');
 
         //Route untuk profile
-        
         Route::get('/siswa/{id}/profile','SiswaController@profile');
 
         //Route untuk tambah nilai 
