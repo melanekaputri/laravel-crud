@@ -22,7 +22,7 @@
                             <div class="right">
                                 <a href="/siswa/exportexcel" class="btn btn-sm btn-primary">Export to Excel</a>
                                 <a href="/siswa/exportpdf" class="btn btn-sm btn-primary">Export to PDF</a>
-                                <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"><i class="lnr lnr-plus-circle"></i></button>
+                                <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"><i class="btn btn-sm btn-primary">Tambah Data</i></button>
                             </div>
                         </div>
                         <div class="panel-body">
@@ -67,7 +67,7 @@
     <div class="modal-dialog" role="document">
     <div class="modal-content">
     <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Siswa</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
