@@ -18,7 +18,7 @@
                     <div class="col-md-12">
                     <div class="panel">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Data Siswa</h3>
+                            <h3 class="panel-title">Data Guru</h3>
                             <div class="right">
                                 <a href="/siswa/exportexcel" class="btn btn-sm btn-primary">Export to Excel</a>
                                 <a href="/siswa/exportpdf" class="btn btn-sm btn-primary">Export to PDF</a>
@@ -29,27 +29,27 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>NAMA DEPAN</th>
-                                        <th>NAMA BELAKANG</th>
+                                        <th>NIP</th>
+                                        <th>NAMA DOSEN</th>
                                         <th>JENIS KELAMIN</th>
+                                        <th>TELEPON</th>
                                         <th>AGAMA</th>
                                         <th>ALAMAT</th>
-                                        <th>RATA-RATA</th>
                                         <th>AKSI</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                     @foreach ($data_siswa as $siswa)
+                                     @foreach ($data_guru as $guru)
                                         <tr>
-                                        <td><a href="/siswa/{{$siswa->id}}/profile">{{ $siswa->nama_depan }}</a></td>
-                                        <td><a href="/siswa/{{$siswa->id}}/profile">{{ $siswa->nama_belakang }}</a></td>
-                                            <td>{{ $siswa->jenis_kelamin }}</td>
-                                            <td>{{ $siswa->agama }}</td>
-                                            <td>{{ $siswa->alamat }}</td>
-                                            <td>{{ $siswa->rataNilai()}}</td>
+                                            <td>{{ $guru->nip}}</td>
+                                            <td><a href="/guru/{{$guru->id}}/profile">{{ $guru->nama }}</a></td>
+                                            <td>{{ $guru->jenis_kelamin }}</td>
+                                            <td>{{ $guru->telepon }}</td>
+                                            <td>{{ $guru->agama }}</td>
+                                            <td>{{ $guru->alamat }}</td>
                                             <td>
-                                                <a href="/siswa/{{ $siswa->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
-                                                <a href="#" class="btn btn-danger btn-sm delete" siswa-id="{{$siswa->id}}">Detele</a>
+                                                <a href="/guru/{{ $guru->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                                                <a href="#" class="btn btn-danger btn-sm delete" guru-id="{{$guru->id}}">Detele</a>
                                             </td>
                                         </tr>
                                     @endforeach

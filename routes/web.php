@@ -57,6 +57,10 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function () {
 
         //Route profile guru
         Route::get('/guru/{id}/profile','GuruController@profile');
+
+        //Untuk route data guru
+        Route::get('/guru', 'GuruController@index');
+
         
 
 });
