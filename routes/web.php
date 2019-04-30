@@ -61,7 +61,9 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function () {
         //Untuk route data guru
         Route::get('/guru', 'GuruController@index');
 
-        
+         //Untuk route data mapel
+         Route::get('/mapel', 'MapelController@index');
+
 
 });
 

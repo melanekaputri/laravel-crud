@@ -6,6 +6,7 @@
                 @if(auth()->user()->role == 'admin')
                     <li><a href="/siswa" class=""><i class="lnr lnr-user"></i> <span>Siswa</span></a></li>
                     <li><a href="/guru" class=""><i class="lnr lnr-users"></i><span>Guru</span></a></li>
+                    <li><a href="/mapel" class=""><i class="lnr lnr-book"></i><span>Mata Pelajaran</span></a></li>
                 @endif
             </ul>
         </nav>

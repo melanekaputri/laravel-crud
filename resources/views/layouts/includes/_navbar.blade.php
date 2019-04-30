@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="brand">
-        <a href="index.html"><img src="{{asset('admin/assets/img/logo-dark.png')}}" alt="Logo" class="img-responsive logo"></a>
+        <span>Sistem Informasi</span>
     </div>
     <div class="container-fluid">
         <div class="navbar-btn">
