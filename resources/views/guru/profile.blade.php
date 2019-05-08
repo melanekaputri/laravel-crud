@@ -38,6 +38,9 @@
                     <!-- RIGHT COLUMN -->
                     <div class="profile-right"> 
                         <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Tambah Mata Pelajaran
+                            </button>
                         <div class="panel">
                             <div class="panel-heading">
                             <h3 class="panel-title">Mata Pelajaran yang Diajar oleh Guru {{$guru->nama}}</h3>
@@ -71,6 +74,47 @@
     <!-- END MAIN CONTENT -->
 </div>
 <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Mata Pelajaran</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+    <form action="/guru/{{$guru->id}}/addmapel" method="POST" enctype="multipart/form-data">
+            {{csrf_field()}}
+            <div class="form-group {{$errors->has('kode') ? 'has-error' : '' }}">
+              <label for="kode">KODE</label>
+            <input name="kode" type="text" class="form-control" id="kode" placeholder="Kode Mata Pelajaran" value="{{old('kode')}}">
+                @if($errors->has('kode'))
+                        <span class="help-block">{{$errors->first('kode')}}</span>
+                @endif
+            </div>
+            <div class="form-group {{$errors->has('nama') ? 'has-error' : '' }}">
+                <label for="nama">NAMA MATA PELAJARAN</label>
+                <input name="nama" type="text" class="form-control" id="nama" placeholder="Nama Mata Pelajaran" value="{{old('nama')}}">
+                    @if($errors->has('nama'))
+                        <span class="help-block">{{$errors->first('nama')}}</span>
+                    @endif
+            </div>
+            <div class="form-group {{$errors->has('semester') ? 'has-error' : '' }}">
+                <label for="semester">SEMESTER</label>
+                <input name="semester" type="text" class="form-control" id="semester" placeholder="Semester" value="{{old('semester')}}">
+                    @if($errors->has('semester'))
+                        <span class="help-block">{{$errors->first('semester')}}</span>
+                    @endif
+            </div>
+        </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+    </div>
+</div>    
 
 @endsection
 

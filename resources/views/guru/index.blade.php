@@ -20,8 +20,8 @@
                         <div class="panel-heading">
                             <h3 class="panel-title">Data Guru</h3>
                             <div class="right">
-                                <a href="/siswa/exportexcel" class="btn btn-sm btn-primary">Export to Excel</a>
-                                <a href="/siswa/exportpdf" class="btn btn-sm btn-primary">Export to PDF</a>
+                                {{-- <a href="/siswa/exportexcel" class="btn btn-sm btn-primary">Export to Excel</a>
+                                <a href="/siswa/exportpdf" class="btn btn-sm btn-primary">Export to PDF</a> --}}
                                 <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"><i class="btn btn-sm btn-primary">Tambah Data</i></button>
                             </div>
                         </div>
@@ -67,26 +67,26 @@
     <div class="modal-dialog" role="document">
     <div class="modal-content">
     <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Siswa</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Guru</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <div class="modal-body">
-        <form action="/siswa/create" method="POST" enctype="multipart/form-data">
+        <form action="/guru/create" method="POST" enctype="multipart/form-data">
             {{csrf_field()}}
-            <div class="form-group {{$errors->has('nama_depan') ? 'has-error' : '' }}">
-              <label for="nama_depan">Nama Depan</label>
-            <input name="nama_depan" type="text" class="form-control" id="nama_depan" aria-describedby="emailHelp" placeholder="Nama Depan" value="{{old('nama_depan')}}">
-                @if($errors->has('nama_depan'))
-                        <span class="help-block">{{$errors->first('nama_depan')}}</span>
+            <div class="form-group {{$errors->has('nip') ? 'has-error' : '' }}">
+              <label for="nip">Nip</label>
+            <input name="nip" type="text" class="form-control" id="nip" placeholder="Nip" value="{{old('nip')}}">
+                @if($errors->has('nip'))
+                        <span class="help-block">{{$errors->first('nip')}}</span>
                 @endif
             </div>
-            <div class="form-group {{$errors->has('nama_belakang') ? 'has-error' : '' }}">
-                <label for="nama_belakang">Nama Belakang</label>
-                <input name="nama_belakang" type="text" class="form-control" id="nama_belakang" placeholder="Nama Belakang" value="{{old('nama_belakang')}}">
-                    @if($errors->has('nama_belakang'))
-                        <span class="help-block">{{$errors->first('nama_belakang')}}</span>
+            <div class="form-group {{$errors->has('nama') ? 'has-error' : '' }}">
+                <label for="nama">Nama</label>
+                <input name="nama" type="text" class="form-control" id="nama" placeholder="nama" value="{{old('nama')}}">
+                    @if($errors->has('nama'))
+                        <span class="help-block">{{$errors->first('nama')}}</span>
                     @endif
             </div>
             <div class="form-group {{$errors->has('email') ? 'has-error' : '' }}">
@@ -106,23 +106,16 @@
                          <span class="help-block">{{$errors->first('jenis_kelamin')}}</span>
                     @endif
             </div>
-            <div class="form-group {{$errors->has('agama') ? 'has-error' : '' }}">
-                <label for="agama">Agama</label>
-                <input name="agama" type="text" class="form-control" id="agama" aria-describedby="emailHelp" placeholder="Agama" value="{{old('agama')}}">
-                    @if($errors->has('agama'))
-                        <span class="help-block">{{$errors->first('agama')}}</span>
+            <div class="form-group {{$errors->has('telepon') ? 'has-error' : '' }}">
+                <label for="telepon">Telepon</label>
+                <input name="telepon" type="text" class="form-control" id="telepon" placeholder="telepon" value="{{old('telepon')}}">
+                    @if($errors->has('telepon'))
+                        <span class="help-block">{{$errors->first('telepon')}}</span>
                     @endif
             </div>
             <div class="form-group">
                 <label for="alamat">Alamat</label>
                 <textarea name="alamat" class="form-control" id="alamat" rows="3">{{old('alamat')}}</textarea>
-            </div>
-            <div class="form-group {{$errors->has('avatar') ? 'has-error' : '' }}">
-                <label for="avatar">Avatar</label>
-                <input type="file" name="avatar" class="form-control">
-                @if($errors->has('avatar'))
-                        <span class="help-block">{{$errors->first('avatar')}}</span>
-                @endif
             </div>
         </div>
     <div class="modal-footer">
@@ -137,17 +130,17 @@
 @section('footer')
     <script>
         $('.delete').click(function(){
-            var siswa_id = $(this).attr('siswa-id');
+            var guru_id = $(this).attr('guru-id');
             swal({
                 title: "Yakin Ingin Menghapus Data Ini?",
-                text: "Data siswa dengan ID "+ siswa_id +" akan dihapus!!",
+                text: "Data siswa dengan ID "+ guru_id +" akan dihapus!!",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
                 })
                 .then((willDelete) => {
                 if (willDelete) {
-                    window.location = "/siswa/"+siswa_id+"/delete";
+                    window.location = "/guru/"+guru_id+"/delete";
                 }
             });
         });

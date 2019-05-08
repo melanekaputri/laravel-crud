@@ -55,19 +55,46 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function () {
         //Route Export PDF Siswa
         Route::get('/siswa/exportpdf','SiswaController@exportPdf');
 
+
+
         //Route profile guru
         Route::get('/guru/{id}/profile','GuruController@profile');
 
         //Untuk route data guru
         Route::get('/guru', 'GuruController@index');
 
-         //Untuk route data mapel
-         Route::get('/mapel', 'MapelController@index');
+         // Route untuk delete data guru
+         Route::get('/guru/{id}/delete','GuruController@delete');
+
+         //Untuk route edit data guru
+         Route::get('/guru/{id}/edit','GuruController@edit');
+         Route::post('/guru/{id}/update','GuruController@update');
+ 
+         //Untuk route create data guru
+         Route::post('/guru/create', 'GuruController@create');
+
+        //Route untuk tambah mapel
+        Route::post('/guru/{id}/addmapel','GuruController@addmapel');
+         
+
+        //Untuk route data mapel
+        Route::get('/mapel', 'MapelController@index');
+
+        // Route untuk delete data mapel
+        Route::get('/mapel/{id}/delete','MapelController@delete');
+
+        //Untuk route edit data siswa
+        Route::get('/mapel/{id}/edit','MapelController@edit');
+        Route::post('/mapel/{id}/update','MapelController@update');
+
+        //Untuk route create data siswa
+        Route::post('/mapel/create', 'MapelController@create');
+ 
 
 
 });
 
-Route::group(['middleware' => ['auth','checkRole:admin,siswa']], function (){
+Route::group(['middleware' => ['auth','checkRole:admin,siswa,guru']], function (){
         //Route untuk dashboard
         Route::get('/dashboard', 'DashboardController@index');
 });

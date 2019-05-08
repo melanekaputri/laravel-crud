@@ -33,14 +33,11 @@
                             </div>
                             <div class="profile-stat">
                                 <div class="row">
-                                    <div class="col-md-4 stat-item">
+                                    <div class="col-md-6 stat-item">
                                         {{$siswa->mapel->count()}} <span>Mata Pelajaran</span>
                                     </div>
-                                    <div class="col-md-4 stat-item">
+                                    <div class="col-md-6 stat-item">
                                         {{$siswa->rataNilai()}} <span>Rata-rata Nilai</span>
-                                    </div>
-                                    <div class="col-md-4 stat-item">
-                                        2174 <span>Points</span>
                                     </div>
                                 </div>
                             </div>

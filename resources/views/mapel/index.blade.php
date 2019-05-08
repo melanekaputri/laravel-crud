@@ -20,8 +20,8 @@
                         <div class="panel-heading">
                             <h3 class="panel-title">Data Mata Pelajaran</h3>
                             <div class="right">
-                                <a href="/siswa/exportexcel" class="btn btn-sm btn-primary">Export to Excel</a>
-                                <a href="/siswa/exportpdf" class="btn btn-sm btn-primary">Export to PDF</a>
+                                {{-- <a href="/siswa/exportexcel" class="btn btn-sm btn-primary">Export to Excel</a>
+                                <a href="/siswa/exportpdf" class="btn btn-sm btn-primary">Export to PDF</a> --}}
                                 <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"><i class="btn btn-sm btn-primary">Tambah Data</i></button>
                             </div>
                         </div>
@@ -63,62 +63,41 @@
     <div class="modal-dialog" role="document">
     <div class="modal-content">
     <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Siswa</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Mata Pelajaran</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <div class="modal-body">
-        <form action="/siswa/create" method="POST" enctype="multipart/form-data">
+        <form action="/mapel/create" method="POST" enctype="multipart/form-data">
             {{csrf_field()}}
-            <div class="form-group {{$errors->has('nama_depan') ? 'has-error' : '' }}">
-              <label for="nama_depan">Nama Depan</label>
-            <input name="nama_depan" type="text" class="form-control" id="nama_depan" aria-describedby="emailHelp" placeholder="Nama Depan" value="{{old('nama_depan')}}">
-                @if($errors->has('nama_depan'))
-                        <span class="help-block">{{$errors->first('nama_depan')}}</span>
+            <div class="form-group {{$errors->has('kode') ? 'has-error' : '' }}">
+              <label for="kode">KODE</label>
+            <input name="kode" type="text" class="form-control" id="kode" placeholder="Kode Mata Pelajaran" value="{{old('kode')}}">
+                @if($errors->has('kode'))
+                        <span class="help-block">{{$errors->first('kode')}}</span>
                 @endif
             </div>
-            <div class="form-group {{$errors->has('nama_belakang') ? 'has-error' : '' }}">
-                <label for="nama_belakang">Nama Belakang</label>
-                <input name="nama_belakang" type="text" class="form-control" id="nama_belakang" placeholder="Nama Belakang" value="{{old('nama_belakang')}}">
-                    @if($errors->has('nama_belakang'))
-                        <span class="help-block">{{$errors->first('nama_belakang')}}</span>
+            <div class="form-group {{$errors->has('nama') ? 'has-error' : '' }}">
+                <label for="nama">NAMA MATA PELAJARAN</label>
+                <input name="nama" type="text" class="form-control" id="nama" placeholder="Nama Mata Pelajaran" value="{{old('nama')}}">
+                    @if($errors->has('nama'))
+                        <span class="help-block">{{$errors->first('nama')}}</span>
                     @endif
             </div>
-            <div class="form-group {{$errors->has('email') ? 'has-error' : '' }}">
-                <label for="email">Email</label>
-                <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email" value="{{old('email')}}">
-                    @if($errors->has('email'))
-                        <span class="help-block">{{$errors->first('email')}}</span>
+            <div class="form-group {{$errors->has('jam_bulan') ? 'has-error' : '' }}">
+                <label for="jam_bulan">JAM/BULAN</label>
+                <input name="jam_bulan" type="text" class="form-control" id="jam_bulan" placeholder="Jam Belajar/bulan" value="{{old('jam_bulan')}}">
+                    @if($errors->has('jam_bulan'))
+                        <span class="help-block">{{$errors->first('jam_bulan')}}</span>
                     @endif
             </div>
-            <div class="form-group {{$errors->has('jenis_kelamin') ? 'has-error' : '' }}">
-                <label for="jenis_kelamin">Pilih Jenis Kelamin</label>
-                <select name="jenis_kelamin" class="form-control" id="jenis_kelamin">
-                  <option value="Laki-laki"{{(old('jenis_kelamin') == 'Laki-laki') ? 'selected': ''}}>Laki-laki</option>
-                  <option value="Perempuan"{{(old('jenis_kelamin') == 'Perempuan') ? 'selected': ''}}>Perempuan</option>
-                </select>
-                    @if($errors->has('jenis_kelamin'))
-                         <span class="help-block">{{$errors->first('jenis_kelamin')}}</span>
+            <div class="form-group {{$errors->has('semester') ? 'has-error' : '' }}">
+                <label for="semester">SEMESTER</label>
+                <input name="semester" type="text" class="form-control" id="semester" placeholder="Semester" value="{{old('semester')}}">
+                    @if($errors->has('semester'))
+                        <span class="help-block">{{$errors->first('semester')}}</span>
                     @endif
-            </div>
-            <div class="form-group {{$errors->has('agama') ? 'has-error' : '' }}">
-                <label for="agama">Agama</label>
-                <input name="agama" type="text" class="form-control" id="agama" aria-describedby="emailHelp" placeholder="Agama" value="{{old('agama')}}">
-                    @if($errors->has('agama'))
-                        <span class="help-block">{{$errors->first('agama')}}</span>
-                    @endif
-            </div>
-            <div class="form-group">
-                <label for="alamat">Alamat</label>
-                <textarea name="alamat" class="form-control" id="alamat" rows="3">{{old('alamat')}}</textarea>
-            </div>
-            <div class="form-group {{$errors->has('avatar') ? 'has-error' : '' }}">
-                <label for="avatar">Avatar</label>
-                <input type="file" name="avatar" class="form-control">
-                @if($errors->has('avatar'))
-                        <span class="help-block">{{$errors->first('avatar')}}</span>
-                @endif
             </div>
         </div>
     <div class="modal-footer">
@@ -133,17 +112,17 @@
 @section('footer')
     <script>
         $('.delete').click(function(){
-            var siswa_id = $(this).attr('siswa-id');
+            var mapel_id = $(this).attr('mapel-id');
             swal({
                 title: "Yakin Ingin Menghapus Data Ini?",
-                text: "Data siswa dengan ID "+ siswa_id +" akan dihapus!!",
+                text: "Data Mata Pelajaran dengan ID "+ mapel_id +" akan dihapus!!",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
                 })
                 .then((willDelete) => {
                 if (willDelete) {
-                    window.location = "/siswa/"+siswa_id+"/delete";
+                    window.location = "/mapel/"+mapel_id+"/delete";
                 }
             });
         });
