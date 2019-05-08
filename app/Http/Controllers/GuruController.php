@@ -25,28 +25,41 @@ class GuruController extends Controller
 
     public function create(Request $request)
     {
-        $this->validate($request,[
-            'nip'    => 'required|min:5',
-            'nama' => 'required',
-            'jenis_kelamin' => 'required',
-            'telepon' => 'required',
-            'agama'         => 'required',
-            'alamat'        => 'required',
-        ]);
+        // $this->validate($request,[
+        //     'nip'    => 'required|min:5',
+        //     'nama' => 'required',
+        //     'jenis_kelamin' => 'required',
+        //     'telepon' => 'required',
+        //     'agama'         => 'required',
+        //     'alamat'        => 'required',
+        // ]);
         
-        // Insert ke tabel user
-        $user = new \App\User;
-        $user->role = 'guru';
-        $user->name = $request->nama;
-        $user->email = $request->email;
-        $user->password = bcrypt('123456789'); 
-        $user->remember_token = str_random(60);
-        $user->save();
+        // // Insert ke tabel user
+        // $user = new \App\User;
+        // $user->role = 'guru';
+        // $user->name = $request->nama;
+        // $user->email = $request->email;
+        // $user->password = bcrypt('123456789'); 
+        // $user->remember_token = str_random(60);
+        // $user->save();
 
-        // Insert ke tabel guru
-        $request->request->add(['user_id' => $user->id ]);
-        \App\Guru::create($request->all());
-        return redirect('/guru')->with('success','Berhasil menambahkan data siswa!');
+        // // Insert ke tabel guru
+        // $request->request->add(['user_id' => $user->id ]);
+        // \App\Guru::create($request->all());
+        // return redirect('/guru')->with('success','Berhasil menambahkan data siswa!');
+
+        // dd($request->all());
+        Guru::create($request->all());
+        return redirect('/guru')->with('success','Berhasil menambahkan data guru!');
+        // Guru::create([
+        //     'nip' => request('nip'),
+        //     'nama' => request('nama'),
+        //     'jenis_kelamin' => request('jenis_kelamin'),
+        //     'telepon' => request('telepon'),
+        //     'alamat' => request('alamat')
+        // ]);
+
+
     }
 
     public function edit($id)

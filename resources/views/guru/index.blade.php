@@ -113,6 +113,13 @@
                         <span class="help-block">{{$errors->first('telepon')}}</span>
                     @endif
             </div>
+            <div class="form-group {{$errors->has('agama') ? 'has-error' : '' }}">
+                <label for="agama">Agama</label>
+                <input name="agama" type="text" class="form-control" id="agama" aria-describedby="emailHelp" placeholder="Agama" value="{{old('agama')}}">
+                    @if($errors->has('agama'))
+                        <span class="help-block">{{$errors->first('agama')}}</span>
+                    @endif
+            </div>
             <div class="form-group">
                 <label for="alamat">Alamat</label>
                 <textarea name="alamat" class="form-control" id="alamat" rows="3">{{old('alamat')}}</textarea>

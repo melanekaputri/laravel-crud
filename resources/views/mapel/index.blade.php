@@ -73,11 +73,18 @@
             {{csrf_field()}}
             <div class="form-group {{$errors->has('kode') ? 'has-error' : '' }}">
               <label for="kode">KODE</label>
-            <input name="kode" type="text" class="form-control" id="kode" placeholder="Kode Mata Pelajaran" value="{{old('kode')}}">
+                <input name="kode" type="text" class="form-control" id="kode" placeholder="Kode Mata Pelajaran" value="{{old('kode')}}">
                 @if($errors->has('kode'))
                         <span class="help-block">{{$errors->first('kode')}}</span>
                 @endif
             </div>
+            <div class="form-group {{$errors->has('guru_id') ? 'has-error' : '' }}">
+                <label for="guru_id">GURU</label>
+                  <input name="guru_id" type="text" class="form-control" id="guru_id" placeholder="Guru Mapel" value="{{old('guru_id')}}">
+                  @if($errors->has('guru_id'))
+                          <span class="help-block">{{$errors->first('guru_id')}}</span>
+                  @endif
+              </div>
             <div class="form-group {{$errors->has('nama') ? 'has-error' : '' }}">
                 <label for="nama">NAMA MATA PELAJARAN</label>
                 <input name="nama" type="text" class="form-control" id="nama" placeholder="Nama Mata Pelajaran" value="{{old('nama')}}">
