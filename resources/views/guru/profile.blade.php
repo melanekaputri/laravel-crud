@@ -27,11 +27,33 @@
                         <div class="profile-header">
                             <div class="overlay"></div>
                             <div class="profile-main">
-                                <img src="" class="img-circle" alt="Avatar">
+                                <img src="{{$guru->getAvatar()}}" class="img-circle" alt="Avatar">
                             <h3 class="name">{{$guru->nama}}</h3>
                                 <span class="online-status status-available">Available</span>
                             </div>
+                            <div class="profile-stat">
+                                <div class="row">
+                                    <div class="col-md-12 stat-item">
+                                        {{$guru->mapel->count()}} <span>Mata Pelajaran</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END PROFILE HEADER -->
+                        <!-- PROFILE DETAIL -->
+                        <div class="profile-detail">
+                            <div class="profile-info">
+                                <h4 class="heading">Detail Profil Diri</h4>
+                                <ul class="list-unstyled list-justify">
+                                <li>Jenis Kelamin <span>{{$guru->jenis_kelamin}}</span></li>
+                                <li>Agama <span>{{$guru->agama}}</span></li>
+                                <li>Alamat <span>{{$guru->alamat}}</span></li>
+                                </ul>
+                            </div>
                             
+                        <div class="text-center"><a href="/guru/{{$guru->id}}/edit" class="btn btn-warning">Edit Profile</a></div>
+                        </div>
+                        <!-- END PROFILE DETAIL -->
                         </div>
                     </div>
                     <!-- END LEFT COLUMN -->

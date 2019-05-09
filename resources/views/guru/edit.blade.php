@@ -50,6 +50,10 @@
                                         <label for="alamat">Alamat</label>
                                     <textarea name="alamat" class="form-control" id="alamat" rows="3">{{$guru->alamat}}</textarea>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="alamat">Avatar</label>
+                                        <input type="file" name="avatar" class="form-control">
+                                    </div>
                                     <button type="submit" class="btn btn-warning">Update</button>
                             </form>
                             </div>                           
