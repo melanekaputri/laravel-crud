@@ -22,7 +22,7 @@
                             <div class="right">
                                 {{-- <a href="/siswa/exportexcel" class="btn btn-sm btn-primary">Export to Excel</a>
                                 <a href="/siswa/exportpdf" class="btn btn-sm btn-primary">Export to PDF</a> --}}
-                                <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"><i class="btn btn-sm btn-primary">Tambah Data</i></button>
+                                {{-- <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"><i class="btn btn-sm btn-primary">Tambah Data</i></button> --}}
                             </div>
                         </div>
                         <div class="panel-body">
@@ -31,7 +31,6 @@
                                     <tr>
                                         <th>KODE</th>
                                         <th>NAMA MATA PELAJARAN</th>
-                                        <th>JAM/BULAN</th>
                                         <th>SEMESTER</th>
                                         <th>AKSI</th>
                                     </tr>
@@ -41,7 +40,6 @@
                                         <tr>
                                             <td>{{ $mapel->kode}}</td>
                                             <td>{{ $mapel->nama }}</td>
-                                            <td>{{ $mapel->jam_bulan }}</td>
                                             <td>{{ $mapel->semester }}</td>
                                             <td>
                                                 <a href="/mapel/{{ $mapel->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
@@ -90,13 +88,6 @@
                 <input name="nama" type="text" class="form-control" id="nama" placeholder="Nama Mata Pelajaran" value="{{old('nama')}}">
                     @if($errors->has('nama'))
                         <span class="help-block">{{$errors->first('nama')}}</span>
-                    @endif
-            </div>
-            <div class="form-group {{$errors->has('jam_bulan') ? 'has-error' : '' }}">
-                <label for="jam_bulan">JAM/BULAN</label>
-                <input name="jam_bulan" type="text" class="form-control" id="jam_bulan" placeholder="Jam Belajar/bulan" value="{{old('jam_bulan')}}">
-                    @if($errors->has('jam_bulan'))
-                        <span class="help-block">{{$errors->first('jam_bulan')}}</span>
                     @endif
             </div>
             <div class="form-group {{$errors->has('semester') ? 'has-error' : '' }}">

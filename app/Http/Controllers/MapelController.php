@@ -64,14 +64,17 @@ class MapelController extends Controller
         // return redirect('/mapel')->with('success','Berhasil menambahkan data mata pelajaran!');
 
         // \App\Mapel::create($request->all());
-        dd($request->all());
-        Mapel::create([
-            'kode' => request('kode'),
-            'nama' => request('nama'),
-            'jam_bulan' => request('jam_bulan'),
-            'semester' => request('semester'),
-            'guru_id' => request('id')
-        ]);
+
+        // dd($request->all());
+        // Mapel::create([
+        //     'kode' => request('kode'),
+        //     'nama' => request('nama'),
+        //     'semester' => request('semester'),
+        //     'guru_id' => request('id')
+        // ]);
+        Mapel::create($request->all());
+        return redirect('/mapel')->with('success','Berhasil menambahkan data guru!');
+
        
         // return redirect('/mapel');
         

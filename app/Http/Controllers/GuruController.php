@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Guru;
+use App\Mapel;
 
 class GuruController extends Controller
 {
@@ -87,11 +88,46 @@ class GuruController extends Controller
 
     public function addmapel(Request $request,$idguru)
     {
-        $guru = \App\Guru::find($idguru);
+        
+        //  // // Insert ke tabel user
+        //  $user = new \App\User;
+        //  $user->role = 'guru';
+        //  $user->name = $request->nama;
+        //  $user->email = $request->email;
+        //  $user->password = bcrypt('123456789'); 
+        //  $user->remember_token = str_random(60);
+        //  $user->save();
+ 
+        //  // // Insert ke tabel guru
+        //  $request->request->add(['guru_id' => $user->id ]);
+        //  $guru = Guru::create($request->all());
+        //  if($request->hasFile('avatar')){
+        //      $request->file('avatar')->move('images/',$request->file('avatar')->getClientOriginalName());
+        //      $guru->avatar = $request->file('avatar')->getClientOriginalName();
+        //      $guru->save();
+        //  }
+        //  return redirect('/guru')->with('success','Berhasil menambahkan data guru!');
+        
+        // $guru = \App\Guru::find($idguru);
        
-        $guru->mapel()->attach($request->mapel,['nama' => $request->nama]);
+        // $guru->mapel()->attach($request->mapel,['nama' => $request->nama]);
 
-        return redirect('siswa/'.$idguru.'/profile')->with('success','Nilai berhasil ditambahkan!');
+        // return redirect('siswa/'.$idguru.'/profile')->with('success','Nilai berhasil ditambahkan!');
 
+        // Insert ke tabel mapel
+        Guru::find($idguru);
+        $mapel = new Mapel;
+        $mapel->kode = $request->kode;
+        $mapel->nama = $request->nama;
+        $mapel->semester = $request->semester;
+        $mapel->guru_id = $idguru;
+        $mapel->save();
+
+        // Insert ke id table guru ke guru_id[mapel]
+        $request->request->add(['id' => $mapel->guru_id]);
+
+        // Return
+        return redirect('guru/'.$idguru.'/profile')->with('success','Data Mata Pelajaran berhasil ditambah!');
+    
     }
 }

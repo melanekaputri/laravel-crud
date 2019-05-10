@@ -32,10 +32,6 @@
                                     <input name="nama" type="text" class="form-control" id="nama" placeholder="Nama Mata Pelajaran" value="{{$mapel->nama}}">
                                     </div>
                                     <div class="form-group">
-                                      <label for="jam_bulan">JAM/BULAN</label>
-                                    <input name="jam_bulan" type="text" class="form-control" id="jam_bulan" placeholder="Jam Belajaran/bulan" value="{{$mapel->jam_bulan}}">
-                                    </div>
-                                    <div class="form-group">
                                       <label for="semester">SEMESTER</label>
                                     <input name="semester" type="text" class="form-control" id="semester" placeholder="Semester" value="{{$mapel->semester}}">
                                     </div>
