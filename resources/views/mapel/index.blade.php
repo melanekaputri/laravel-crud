@@ -32,6 +32,7 @@
                                         <th>KODE</th>
                                         <th>NAMA MATA PELAJARAN</th>
                                         <th>SEMESTER</th>
+                                        <th>GURU</th>
                                         <th>AKSI</th>
                                     </tr>
                                 </thead>
@@ -41,6 +42,11 @@
                                             <td>{{ $mapel->kode}}</td>
                                             <td>{{ $mapel->nama }}</td>
                                             <td>{{ $mapel->semester }}</td>
+                                            @foreach ($data_guru as $guru)
+                                                @if ($mapel->guru_id == $guru->id)
+                                                <td>{{ $guru->nama }}</td>
+                                                @endif
+                                            @endforeach
                                             <td>
                                                 <a href="/mapel/{{ $mapel->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
                                                 <a href="#" class="btn btn-danger btn-sm delete" mapel-id="{{$mapel->id}}">Detele</a>

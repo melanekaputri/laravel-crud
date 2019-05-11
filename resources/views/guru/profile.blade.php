@@ -29,7 +29,7 @@
                             <div class="profile-main">
                                 <img src="{{$guru->getAvatar()}}" class="img-circle" alt="Avatar">
                             <h3 class="name">{{$guru->nama}}</h3>
-                                <span class="online-status status-available">Available</span>
+                                
                             </div>
                             <div class="profile-stat">
                                 <div class="row">

@@ -14,8 +14,9 @@ class MapelController extends Controller
             $data_mapel = Mapel::where('nama','LIKE','%'.$request->cari.'%')->get();
         }else{
             $data_mapel = Mapel::all();
+            $data_guru = Guru::all();
         }
-        return view('mapel.index',['data_mapel'=>$data_mapel]);
+        return view('mapel.index',['data_mapel'=>$data_mapel,'data_guru'=>$data_guru]);
     }
 
     public function delete($id)
@@ -43,35 +44,7 @@ class MapelController extends Controller
     public function create(Request $request)
     {
        
-        // // dd($request->all());
-        // $this->validate($request,[
-        //     'kode'      => 'required|min:3',
-        //     'nama'      => 'required',
-        //     'jam_bulan' => 'required',
-        //     'semester'  => 'required',
-        // ]);
-
-        // $mapel = new Mapel;
-        // $mapel->kode = $request->kode;
-        // $mapel->nama = $request->nama;
-        // $mapel->jam_bulan = $request->jam_bulan;
-        // $mapel->semester = $request->semester; 
-        // $mapel->save();
-        
-        // // Insert ke tabel mapel
-        // $request->request->add(['mapel_id' => $mapel->id ]);
-        // $mapel = Mapel::create($request->all());
-        // return redirect('/mapel')->with('success','Berhasil menambahkan data mata pelajaran!');
-
-        // \App\Mapel::create($request->all());
-
-        // dd($request->all());
-        // Mapel::create([
-        //     'kode' => request('kode'),
-        //     'nama' => request('nama'),
-        //     'semester' => request('semester'),
-        //     'guru_id' => request('id')
-        // ]);
+       
         Mapel::create($request->all());
         return redirect('/mapel')->with('success','Berhasil menambahkan data guru!');
 

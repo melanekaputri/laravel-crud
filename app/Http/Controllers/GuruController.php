@@ -88,32 +88,6 @@ class GuruController extends Controller
 
     public function addmapel(Request $request,$idguru)
     {
-        
-        //  // // Insert ke tabel user
-        //  $user = new \App\User;
-        //  $user->role = 'guru';
-        //  $user->name = $request->nama;
-        //  $user->email = $request->email;
-        //  $user->password = bcrypt('123456789'); 
-        //  $user->remember_token = str_random(60);
-        //  $user->save();
- 
-        //  // // Insert ke tabel guru
-        //  $request->request->add(['guru_id' => $user->id ]);
-        //  $guru = Guru::create($request->all());
-        //  if($request->hasFile('avatar')){
-        //      $request->file('avatar')->move('images/',$request->file('avatar')->getClientOriginalName());
-        //      $guru->avatar = $request->file('avatar')->getClientOriginalName();
-        //      $guru->save();
-        //  }
-        //  return redirect('/guru')->with('success','Berhasil menambahkan data guru!');
-        
-        // $guru = \App\Guru::find($idguru);
-       
-        // $guru->mapel()->attach($request->mapel,['nama' => $request->nama]);
-
-        // return redirect('siswa/'.$idguru.'/profile')->with('success','Nilai berhasil ditambahkan!');
-
         // Insert ke tabel mapel
         Guru::find($idguru);
         $mapel = new Mapel;
