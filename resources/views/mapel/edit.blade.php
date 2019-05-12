@@ -18,7 +18,7 @@
                     <div class="col-md-12">
                         <div class="panel">
                             <div class="panel-heading">
-                                    <h3 class="panel-title">Inputs</h3>
+                                    <h3 class="panel-title">Edit Data Mata Pelajaran</h3>
                             </div>
                             <div class="panel-body">
                                 <form action="/mapel/{{$mapel->id}}/update" method="POST" enctype="multipart/form-data">

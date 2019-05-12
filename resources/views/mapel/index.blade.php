@@ -1,5 +1,5 @@
 @extends('layouts.master')
-
+<title>Mata Pelajaran | Data Siswa</title>
 @section('content')
     <div class="main">
         <div class="main-content">

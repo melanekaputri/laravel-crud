@@ -1,5 +1,5 @@
 @extends('layouts.master')
-
+<title>Siswa | Data Siswa</title>
 @section('content')
     <div class="main">
         <div class="main-content">
