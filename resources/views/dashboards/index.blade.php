@@ -5,7 +5,7 @@
         <div class="main-content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="panel">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Ranking Siswa 5 Besar</h3>
@@ -56,6 +56,16 @@
                             </p>
                         </div>
                     </div>
+                    <div class="col-md-3">
+                        <div class="metric">
+                            <span class="icon"><i class="lnr lnr-users"></i></span>
+                            <p>
+                                <span class="title">Jumlah User</span>
+                                <span class="number">{{totalUser()}}</span>
+                            </p>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>

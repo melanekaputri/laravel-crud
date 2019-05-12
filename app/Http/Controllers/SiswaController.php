@@ -7,6 +7,7 @@ use App\Exports\SiswaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use PDF;
 use App\Siswa;
+use App\User;
 
 class SiswaController extends Controller
 {
@@ -75,8 +76,9 @@ class SiswaController extends Controller
 
     public function delete($id)
     {
-        $siswa = \App\Siswa::find($id);
+        $siswa = Siswa::find($id);
         $siswa->delete($siswa);
+       
         return redirect('/siswa')->with('success','Data berhasil dihapus!');
     }
 

@@ -29,8 +29,7 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>NAMA DEPAN</th>
-                                        <th>NAMA BELAKANG</th>
+                                        <th>NAMA LENGKAP</th>
                                         <th>JENIS KELAMIN</th>
                                         <th>AGAMA</th>
                                         <th>ALAMAT</th>
@@ -41,8 +40,8 @@
                                 <tbody>
                                      @foreach ($data_siswa as $siswa)
                                         <tr>
-                                        <td><a href="/siswa/{{$siswa->id}}/profile">{{ $siswa->nama_depan }}</a></td>
-                                        <td><a href="/siswa/{{$siswa->id}}/profile">{{ $siswa->nama_belakang }}</a></td>
+                                        <td><a href="/siswa/{{$siswa->id}}/profile">{{ $siswa->nama_lengkap() }}</a></td>
+                                        {{-- <td><a href="/siswa/{{$siswa->id}}/profile">{{ $siswa->nama_belakang }}</a></td> --}}
                                             <td>{{ $siswa->jenis_kelamin }}</td>
                                             <td>{{ $siswa->agama }}</td>
                                             <td>{{ $siswa->alamat }}</td>

@@ -90,7 +90,14 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function () {
         //Untuk route create data siswa
         Route::post('/mapel/create', 'MapelController@create');
  
+        Route::get('/user','UserController@index');
+        // Route untuk delete data guru
+        Route::get('/user/{id}/delete','GuruController@delete');
 
+        //Untuk route edit data guru
+        Route::get('/user/{id}/edit','UserController@edit');
+        Route::post('/user/{id}/update','UserController@update');
+        Route::post('/user/create', 'UserController@create');
 
 });
 

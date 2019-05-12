@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Guru;
 use App\Mapel;
+use App\User;
 
 class GuruController extends Controller
 {
@@ -83,6 +84,7 @@ class GuruController extends Controller
     {
         $guru = Guru::find($id);
         $guru->delete($guru);
+    
         return redirect('/guru')->with('success','Data berhasil dihapus!');
     }
 

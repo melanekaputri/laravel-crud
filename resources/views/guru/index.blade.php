@@ -30,7 +30,7 @@
                                 <thead>
                                     <tr>
                                         <th>NIP</th>
-                                        <th>NAMA DOSEN</th>
+                                        <th>NAMA GURU</th>
                                         <th>JENIS KELAMIN</th>
                                         <th>TELEPON</th>
                                         <th>AGAMA</th>
@@ -147,7 +147,7 @@
             var guru_id = $(this).attr('guru-id');
             swal({
                 title: "Yakin Ingin Menghapus Data Ini?",
-                text: "Data siswa dengan ID "+ guru_id +" akan dihapus!!",
+                text: "Data Guru dengan ID "+ guru_id +" akan dihapus!!",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,

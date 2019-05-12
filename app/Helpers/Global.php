@@ -1,6 +1,7 @@
 <?php
 use App\Siswa;
 use App\Guru;
+use App\User;
 
 function ranking5Besar()
 {
@@ -26,3 +27,9 @@ function totalGuru()
 {
     return Guru::count();
 }
+
+function totalUser()
+{
+    return User::count();
+}
+    
