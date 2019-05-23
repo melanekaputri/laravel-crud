@@ -34,8 +34,8 @@
                                     <div class="form-group">
                                         <label for="jenis_kelamin">Pilih Jenis Kelamin</label>
                                         <select name="jenis_kelamin" class="form-control" id="jenis_kelamin">
-                                          <option value="L" @if($guru->jenis_kelamin == 'L') selected @endif>Laki-laki</option>
-                                          <option value="P" @if($guru->jenis_kelamin == 'P') selected @endif>Perempuan</option>
+                                          <option value="Laki-laki" @if($guru->jenis_kelamin == 'Laki-laki') selected @endif>Laki-laki</option>
+                                          <option value="Perempuan" @if($guru->jenis_kelamin == 'Perempuan') selected @endif>Perempuan</option>
                                         </select>
                                     </div>
                                     <div class="form-group">

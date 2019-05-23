@@ -83,11 +83,11 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function () {
         // Route untuk delete data mapel
         Route::get('/mapel/{id}/delete','MapelController@delete');
 
-        //Untuk route edit data siswa
+        //Untuk route edit data mapel
         Route::get('/mapel/{id}/edit','MapelController@edit');
         Route::post('/mapel/{id}/update','MapelController@update');
 
-        //Untuk route create data siswa
+        //Untuk route create data mapel
         Route::post('/mapel/create', 'MapelController@create');
  
         Route::get('/user','UserController@index');
