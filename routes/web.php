@@ -28,7 +28,7 @@ Route::get('/logout','AuthController@logout');
 
 Route::group(['middleware' => ['auth','checkRole:admin']], function () {
         //Untuk route data siswa
-        Route::get('/siswa', 'SiswaController@index');
+        // Route::get('/siswa', 'SiswaController@index');
 
         //Untuk route create data siswa
         Route::post('/siswa/create', 'SiswaController@create');
@@ -60,8 +60,8 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function () {
         //Route profile guru
         Route::get('/guru/{id}/profile','GuruController@profile');
 
-        //Untuk route data guru
-        Route::get('/guru', 'GuruController@index');
+        // //Untuk route data guru
+        // Route::get('/guru', 'GuruController@index');
 
          // Route untuk delete data guru
          Route::get('/guru/{id}/delete','GuruController@delete');
@@ -77,8 +77,8 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function () {
         Route::post('/guru/{id}/addmapel','GuruController@addmapel');
          
 
-        //Untuk route data mapel
-        Route::get('/mapel', 'MapelController@index');
+        // //Untuk route data mapel
+        // Route::get('/mapel', 'MapelController@index');
 
         // Route untuk delete data mapel
         Route::get('/mapel/{id}/delete','MapelController@delete');
@@ -104,6 +104,16 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function () {
 Route::group(['middleware' => ['auth','checkRole:admin,siswa,guru']], function (){
         //Route untuk dashboard
         Route::get('/dashboard', 'DashboardController@index');
+
+         //Untuk route data siswa
+         Route::get('/siswa', 'SiswaController@index');
+
+         //Untuk route data guru
+        Route::get('/guru', 'GuruController@index');
+        
+         //Untuk route data mapel
+         Route::get('/mapel', 'MapelController@index');
+
 });
 
 
